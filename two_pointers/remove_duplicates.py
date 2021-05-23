@@ -12,17 +12,15 @@
     Explanation: The first two elements after removing the duplicates will be [2, 11].
 '''
 def remove_duplicates(arr):
-    low = 0
-    high = 0
+    index = 1
+    left = 1
     
-    for high in range(len(arr)):
-        if high > 0 and arr[high] == arr[high - 1]:
-            low += 1
-        if low > 0 and arr[high] != arr[high - 1]:
-            arr[low] = arr[high]
-            low += 1
+    while(index < len(arr)):
+        if arr[left - 1] != arr[index]:
+            arr[left] = arr[index]
+            left += 1
+        index += 1
     print(arr)
-    print(low)
 
 if __name__ == '__main__':
     remove_duplicates([2, 3, 3, 3, 6, 9, 9])
